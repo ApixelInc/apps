@@ -1,0 +1,24 @@
+
+function FindProxyForURL(url, host) {
+  var proxyHostname = '192.168.71.77'
+  var proxyPort = 8080
+
+  // if host  endswith youtube.com , or ends with ytimg.com, or ends with googlevideo.com
+  //   or googleapis.com, or contains google.com
+  if (
+    host.endsWith('youtube.com') ||
+    host.endsWith('ytimg.com') ||
+    host.endsWith('googlevideo.com') ||
+    host.endsWith('googleapis.com') ||
+    host.includes('google.com')
+  ) {
+    return 'PROXY ' + proxyHostname + ':' + proxyPort + '; DIRECT'
+  }
+  // else if host endswith ddkids.com or  yikeweiqi.com
+  else if (host.endsWith('ddkids.com') || host.endsWith('yikeweiqi.com')) {
+    return 'PROXY ' + proxyHostname + ':' + proxyPort + '; DIRECT'
+  } else {
+    return 'DIRECT'
+  }
+}
+
